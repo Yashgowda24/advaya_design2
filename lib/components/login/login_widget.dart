@@ -12,15 +12,22 @@ class LoginWidget extends StatelessWidget {
   final String buttonText;
   final VoidCallback onPressed;
   final bool isOtpField;
+  final bool showTextField;
+  final bool showButton;
+  final Widget? customChild;
 
-  LoginWidget(
-      {required this.image,
-      required this.heading,
-      required this.subText,
-      required this.buttonText,
-      required this.hintText,
-      required this.onPressed,
-      this.isOtpField = false});
+  LoginWidget({
+    required this.image,
+    required this.heading,
+    required this.subText,
+    required this.buttonText,
+    required this.hintText,
+    required this.onPressed,
+    this.isOtpField = false,
+    this.showTextField = true,
+    this.showButton = true,
+    this.customChild,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -47,58 +54,66 @@ class LoginWidget extends StatelessWidget {
           SizedBox(
             height: 30,
           ),
-          isOtpField
-              ? OtpTextField(
-                  numberOfFields: 4,
-                  borderColor: Color.fromRGBO(217, 217, 217, 1),
-                  focusedBorderColor: Color.fromRGBO(61, 123, 66, 1),
-                  showFieldAsBox: true,
-                  borderRadius: BorderRadius.circular(12),
-                  fieldWidth: 60,
-                  autoFocus: true,
-                  filled: true,
-                  fillColor: Colors.white,
-                  onSubmit: (String verificationCode) {
-                    print("OTP Entered: $verificationCode");
-                  },
-                )
-              : Container(
-                  height: 55,
-                  width: MediaQuery.of(context).size.width * 0.86,
-                  child: TextField(
-                    textAlign: TextAlign.center,
-                    decoration: InputDecoration(
-                      hintText: hintText,
-                      filled: true,
-                      fillColor: Colors.white,
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          width: 1,
-                          color: Color.fromRGBO(217, 217, 217, 1),
+          // Conditionally show text field or OTP field
+          if (showTextField)
+            isOtpField
+                ? OtpTextField(
+                    numberOfFields: 4,
+                    borderColor: Color.fromRGBO(217, 217, 217, 1),
+                    focusedBorderColor: Color.fromRGBO(61, 123, 66, 1),
+                    showFieldAsBox: true,
+                    borderRadius: BorderRadius.circular(12),
+                    fieldWidth: 60,
+                    autoFocus: true,
+                    filled: true,
+                    fillColor: Colors.white,
+                    onSubmit: (String verificationCode) {
+                      print("OTP Entered: $verificationCode");
+                    },
+                  )
+                : Container(
+                    height: 55,
+                    width: MediaQuery.of(context).size.width * 0.86,
+                    child: TextField(
+                      textAlign: TextAlign.center,
+                      decoration: InputDecoration(
+                        hintText: hintText,
+                        filled: true,
+                        fillColor: Colors.white,
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            width: 1,
+                            color: Color.fromRGBO(217, 217, 217, 1),
+                          ),
+                          borderRadius: BorderRadius.circular(8),
                         ),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(
-                          width: 1,
-                          color: Color.fromRGBO(217, 217, 217, 1),
+                        focusedBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(
+                            width: 1,
+                            color: Color.fromRGBO(217, 217, 217, 1),
+                          ),
                         ),
                       ),
+                      style: GoogleFonts.poppins(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      keyboardType: TextInputType.phone,
                     ),
-                    style: GoogleFonts.poppins(
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.w600,
-                    ),
-                    keyboardType: TextInputType.phone,
                   ),
-                ),
-          SizedBox(
-            height: 30,
-          ),
-          GreenButton(
-            text: buttonText,
-            onPressed: onPressed,
-          ),
+          if (showTextField) const SizedBox(height: 30),
+
+          if (customChild != null) ...[
+            SizedBox(height: 30),
+            customChild!,
+          ],
+
+          // Conditionally show button
+          if (showButton)
+            GreenButton(
+              text: buttonText,
+              onPressed: onPressed,
+            ),
         ],
       ),
     );

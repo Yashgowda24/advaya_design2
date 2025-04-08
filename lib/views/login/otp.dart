@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:new_design_advaya/components/login/login_widget.dart';
+import 'package:new_design_advaya/views/role/role.dart';
 
 class OTPScreen extends StatelessWidget {
   const OTPScreen({super.key});
@@ -18,7 +19,14 @@ class OTPScreen extends StatelessWidget {
           buttonText: 'Continue',
           hintText: 'Enter your number',
           isOtpField: true,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ChooseRole(),
+              ),
+            );
+          },
         ),
       ),
     );
