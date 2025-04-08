@@ -1,4 +1,4 @@
-# new_design_advaya
+# New Advaya design - GyaanPlant design
 
 A new Flutter project.
 
