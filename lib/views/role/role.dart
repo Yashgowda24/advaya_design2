@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:new_design_advaya/components/login/login_widget.dart';
-import 'package:new_design_advaya/views/learning_goals/learning_goals.dart';
+import 'package:new_design_advaya/views/learning_goals/learning_goals1.dart';
 
 class ChooseRole extends StatefulWidget {
   const ChooseRole({super.key});
@@ -16,7 +16,7 @@ class _ChooseRoleState extends State<ChooseRole> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => LearningGoals(),
+        builder: (context) => LearningGoals1(),
       ),
     );
   }

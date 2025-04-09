@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:new_design_advaya/components/login/login_widget.dart';
+import 'package:new_design_advaya/views/learning_goals/learning_goals2.dart';
 
-class LearningGoals extends StatelessWidget {
-  const LearningGoals({super.key});
+class LearningGoals1 extends StatelessWidget {
+  const LearningGoals1({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,12 @@ class LearningGoals extends StatelessWidget {
         showButton: true,
         customChild: LearningGoalsWidget(),
         onPressed: () {
-          print('pressed!');
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => LearningGoals2(),
+            ),
+          );
         },
       ),
     );
