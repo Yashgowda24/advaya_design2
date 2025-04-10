@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:new_design_advaya/styles/styles.dart';
+import 'package:new_design_advaya/views/assessmet/assessmet.dart';
 import 'package:new_design_advaya/views/library/library.dart';
 import 'package:new_design_advaya/views/user_profile/profile.dart';
 
@@ -16,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> _screens = const [
     HomeContent(),
     LibraryScreen(),
-    Center(child: Text('Assessment', style: TextStyle(fontSize: 24))),
+    AssessmetScreen(),
     UserProfileScreen(),
   ];
 

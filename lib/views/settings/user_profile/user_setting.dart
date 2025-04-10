@@ -119,12 +119,7 @@ class _UserProfileSettingScreenState extends State<UserProfileSettingScreen> {
                   GreenButton(
                     text: 'Save Chages',
                     onPressed: () {
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => HomeScreen(),
-                      //   ),
-                      // );
+                      Navigator.pop(context);
                     },
                   )
                 ],

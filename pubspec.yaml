@@ -65,6 +65,8 @@ flutter:
     - assets/images/onboard/
     - assets/images/learning_goals/
     - assets/images/home/
+    - assets/images/leaderboard/
+    - assets/images/assessment/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

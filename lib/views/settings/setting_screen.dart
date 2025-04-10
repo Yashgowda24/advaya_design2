@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:new_design_advaya/styles/styles.dart';
+import 'package:new_design_advaya/views/login/login.dart';
+import 'package:new_design_advaya/views/settings/certificate/my_certificate.dart';
+import 'package:new_design_advaya/views/settings/leaderboard/leaderboard.dart';
 import 'package:new_design_advaya/views/settings/user_profile/user_setting.dart';
 
 class SettingScreen extends StatelessWidget {
@@ -55,17 +58,38 @@ class SettingScreen extends StatelessWidget {
               SettingDisplayWidget(
                 icon: CupertinoIcons.doc_append,
                 text: 'My Certificates',
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => MyCertificateScreen(),
+                    ),
+                  );
+                },
               ),
               SettingDisplayWidget(
                 icon: CupertinoIcons.doc_plaintext,
                 text: 'Leaderboard',
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LeaderboardScreen(),
+                    ),
+                  );
+                },
               ),
               SettingDisplayWidget(
                 icon: Icons.exit_to_app,
                 text: 'Logout',
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LoginScreen(),
+                    ),
+                  );
+                },
               ),
             ],
           ),
