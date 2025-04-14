@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:new_design_advaya/styles/styles.dart';
 import 'package:new_design_advaya/views/assessmet/assessmet.dart';
+import 'package:new_design_advaya/views/course_video/course_video.dart';
 import 'package:new_design_advaya/views/library/library.dart';
 import 'package:new_design_advaya/views/user_profile/profile.dart';
 
@@ -28,16 +29,43 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
         onTap: (index) => setState(() => _currentIndex = index),
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.grey,
         showUnselectedLabels: true,
+        selectedLabelStyle: const TextStyle(
+          fontFamily: 'Gilroy',
+          fontSize: 11.0,
+          color: Color.fromRGBO(61, 34, 160, 1),
+          height: 2,
+          fontWeight: FontWeight.w600,
+        ),
+        unselectedLabelStyle: const TextStyle(
+          fontFamily: 'Gilroy',
+          fontSize: 11.0,
+          color: Color.fromRGBO(149, 151, 168, 1),
+          height: 2,
+          fontWeight: FontWeight.w500,
+        ),
         type: BottomNavigationBarType.fixed,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.book), label: 'Library'),
+        items: [
           BottomNavigationBarItem(
-              icon: Icon(Icons.assignment), label: 'Assessment'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+            icon: Image.asset('assets/images/navBar/category.png'),
+            activeIcon: Image.asset('assets/images/navBar/sel_category.png'),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Image.asset('assets/images/navBar/video-play.png'),
+            activeIcon: Image.asset('assets/images/navBar/sel-video-play.png'),
+            label: 'Library',
+          ),
+          BottomNavigationBarItem(
+            icon: Image.asset('assets/images/navBar/book-square.png'),
+            activeIcon: Image.asset('assets/images/navBar/sel-book-square.png'),
+            label: 'Assessment',
+          ),
+          BottomNavigationBarItem(
+            icon: Image.asset('assets/images/navBar/profile.png'),
+            activeIcon: Image.asset('assets/images/navBar/sel_profile.png'),
+            label: 'Profile',
+          ),
         ],
       ),
     );
@@ -91,8 +119,28 @@ class HomeContent extends StatelessWidget {
               LessonCard(
                 image: 'assets/images/home/img.png',
                 title: 'Lesson 1 | Course 1',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LessonVideoScreen(
+                        lessonNumber: 1,
+                      ),
+                    ),
+                  );
+                },
               ),
               LessonCard(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LessonVideoScreen(
+                        lessonNumber: 1,
+                      ),
+                    ),
+                  );
+                },
                 image: 'assets/images/home/unsplash_KW3m50XRhjk.png',
                 title: 'Lesson 2 | Course 1',
               ),
@@ -102,10 +150,30 @@ class HomeContent extends StatelessWidget {
             title: 'Course 2',
             lessons: [
               LessonCard(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LessonVideoScreen(
+                        lessonNumber: 1,
+                      ),
+                    ),
+                  );
+                },
                 image: 'assets/images/home/unsplash_KW3m50XRhjk_2.png',
                 title: 'Lesson 1-Education | Course 2',
               ),
               LessonCard(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LessonVideoScreen(
+                        lessonNumber: 1,
+                      ),
+                    ),
+                  );
+                },
                 image: 'assets/images/home/unsplash_KW3m50XRhjk_2.png',
                 title: 'Lesson 2-Tutorial | Course 2',
               ),
@@ -115,10 +183,30 @@ class HomeContent extends StatelessWidget {
             title: 'Course 3',
             lessons: [
               LessonCard(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LessonVideoScreen(
+                        lessonNumber: 1,
+                      ),
+                    ),
+                  );
+                },
                 image: 'assets/images/home/unsplash_KW3m50XRhjk_2.png',
                 title: 'Lesson 1 | How to | Course 3',
               ),
               LessonCard(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LessonVideoScreen(
+                        lessonNumber: 1,
+                      ),
+                    ),
+                  );
+                },
                 image: 'assets/images/home/unsplash_KW3m50XRhjk_3.png',
                 title: 'Lesson 2 | How to | Course 3',
               ),
@@ -168,38 +256,47 @@ class CourseSection extends StatelessWidget {
 class LessonCard extends StatelessWidget {
   final String image;
   final String title;
+  final VoidCallback onPressed;
 
-  const LessonCard({super.key, required this.image, required this.title});
+  const LessonCard({
+    super.key,
+    required this.image,
+    required this.title,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.42,
-      margin: const EdgeInsets.symmetric(vertical: 10.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(8),
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                Image.asset(image, fit: BoxFit.cover),
-                const Icon(Icons.play_circle_fill,
-                    color: Colors.white, size: 40),
-              ],
+    return GestureDetector(
+      onTap: onPressed,
+      child: Container(
+        width: MediaQuery.of(context).size.width * 0.42,
+        margin: const EdgeInsets.symmetric(vertical: 10.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Image.asset(image, fit: BoxFit.cover),
+                  const Icon(Icons.play_circle_fill,
+                      color: Colors.white, size: 40),
+                ],
+              ),
             ),
-          ),
-          const SizedBox(height: 8),
-          Text(
-            title,
-            style: kHomeSubHeadingStyle,
-          ),
-          const Text(
-            'Gyaan Plant',
-            style: kGyaanPlantText,
-          ),
-        ],
+            const SizedBox(height: 8),
+            Text(
+              title,
+              style: kHomeSubHeadingStyle,
+            ),
+            const Text(
+              'Gyaan Plant',
+              style: kGyaanPlantText,
+            ),
+          ],
+        ),
       ),
     );
   }

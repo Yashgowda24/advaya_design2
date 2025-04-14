@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:new_design_advaya/views/course_video/course_video.dart';
 import 'package:new_design_advaya/views/home/home.dart';
 
 class LibraryScreen extends StatefulWidget {
@@ -76,10 +77,30 @@ class _LibraryScreenState extends State<LibraryScreen> {
                 title: 'Recommended',
                 lessons: [
                   LessonCard(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => LessonVideoScreen(
+                            lessonNumber: 1,
+                          ),
+                        ),
+                      );
+                    },
                     image: 'assets/images/home/unsplash_KW3m50XRhjk_2.png',
                     title: 'Lesson 1 | Course 1 \nChapter 1',
                   ),
                   LessonCard(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => LessonVideoScreen(
+                            lessonNumber: 1,
+                          ),
+                        ),
+                      );
+                    },
                     image: 'assets/images/home/unsplash_KW3m50XRhjk_2.png',
                     title: 'Lesson 2 | Course 1 \nChapter 1',
                   ),
@@ -89,10 +110,30 @@ class _LibraryScreenState extends State<LibraryScreen> {
                 title: 'Recently viewed',
                 lessons: [
                   LessonCard(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => LessonVideoScreen(
+                            lessonNumber: 1,
+                          ),
+                        ),
+                      );
+                    },
                     image: 'assets/images/home/unsplash_KW3m50XRhjk_2.png',
                     title: 'Lesson 1 | Course 1 \nChapter 1',
                   ),
                   LessonCard(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => LessonVideoScreen(
+                            lessonNumber: 1,
+                          ),
+                        ),
+                      );
+                    },
                     image: 'assets/images/home/unsplash_KW3m50XRhjk_2.png',
                     title: 'Lesson 2 | Course 1 \nChapter 1',
                   ),
