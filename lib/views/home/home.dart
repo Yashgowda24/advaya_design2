@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:new_design_advaya/styles/styles.dart';
 import 'package:new_design_advaya/views/assessmet/assessmet.dart';
 import 'package:new_design_advaya/views/course_video/course_video.dart';
@@ -47,23 +48,27 @@ class _HomeScreenState extends State<HomeScreen> {
         type: BottomNavigationBarType.fixed,
         items: [
           BottomNavigationBarItem(
-            icon: Image.asset('assets/images/navBar/category.png'),
-            activeIcon: Image.asset('assets/images/navBar/sel_category.png'),
+            icon: SvgPicture.asset('assets/images/navBar/category.svg'),
+            activeIcon:
+                SvgPicture.asset('assets/images/navBar/sel_category.svg'),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset('assets/images/navBar/video-play.png'),
-            activeIcon: Image.asset('assets/images/navBar/sel-video-play.png'),
+            icon: SvgPicture.asset('assets/images/navBar/video-play.svg'),
+            activeIcon:
+                SvgPicture.asset('assets/images/navBar/sel_video-play.svg'),
             label: 'Library',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset('assets/images/navBar/book-square.png'),
-            activeIcon: Image.asset('assets/images/navBar/sel-book-square.png'),
+            icon: SvgPicture.asset('assets/images/navBar/book-square.svg'),
+            activeIcon:
+                SvgPicture.asset('assets/images/navBar/sel_book-square.svg'),
             label: 'Assessment',
           ),
           BottomNavigationBarItem(
-            icon: Image.asset('assets/images/navBar/profile.png'),
-            activeIcon: Image.asset('assets/images/navBar/sel_profile.png'),
+            icon: SvgPicture.asset('assets/images/navBar/profile.svg'),
+            activeIcon:
+                SvgPicture.asset('assets/images/navBar/sel_profile.svg'),
             label: 'Profile',
           ),
         ],
@@ -108,7 +113,7 @@ class HomeContent extends StatelessWidget {
           ),
           Center(
             child: Image.asset(
-              'assets/images/home/Frame14.png',
+              'assets/images/home/Frame14.svg',
               height: 50,
             ),
           ),

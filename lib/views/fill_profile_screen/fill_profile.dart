@@ -70,7 +70,8 @@ class TextWidget extends StatelessWidget {
           padding: const EdgeInsets.only(
             left: 15,
             right: 10,
-            top: 5,
+            top: 10,
+            bottom: 10,
           ),
           decoration: BoxDecoration(
             color: Color.fromRGBO(211, 209, 216, 0.25),
@@ -87,7 +88,7 @@ class TextWidget extends StatelessWidget {
                 hintText,
                 style: const TextStyle(
                   fontFamily: 'Gilroy',
-                  fontSize: 12.0,
+                  fontSize: 13.0,
                   color: Color.fromRGBO(100, 100, 100, 1),
                   fontWeight: FontWeight.w500,
                 ),
@@ -97,12 +98,14 @@ class TextWidget extends StatelessWidget {
                 // controller: controller,
                 style: TextStyle(
                   fontFamily: 'Gilroy',
-                  fontSize: 16.0,
+                  fontSize: 17.0,
                   color: Color.fromRGBO(0, 0, 0, 1),
                   fontWeight: FontWeight.w500,
                 ),
                 decoration: InputDecoration(
                   border: InputBorder.none,
+                  isDense: true,
+                  contentPadding: EdgeInsets.only(bottom: 0.0),
                 ),
               ),
             ],

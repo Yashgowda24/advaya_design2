@@ -4,7 +4,7 @@ const TextStyle kGilroy28700 = TextStyle(
   fontFamily: 'Gilroy',
   fontSize: 28.0,
   color: Color.fromRGBO(0, 0, 0, 1),
-  fontWeight: FontWeight.w700,
+  fontWeight: FontWeight.w500,
 );
 
 const TextStyle kGilroy16500 = TextStyle(
