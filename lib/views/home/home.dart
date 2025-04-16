@@ -111,12 +111,13 @@ class HomeContent extends StatelessWidget {
               ],
             ),
           ),
-          Center(
-            child: Image.asset(
-              'assets/images/home/Frame14.svg',
-              height: 50,
-            ),
-          ),
+          LearningProgressCard(),
+          // Center(
+          //   child: SvgPicture.asset(
+          //     'assets/images/home/Frame14.svg',
+          //     height: 50,
+          //   ),
+          // ),
           const SizedBox(height: 20),
           CourseSection(
             title: 'Course 1',
@@ -302,6 +303,117 @@ class LessonCard extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class LearningProgressCard extends StatelessWidget {
+  const LearningProgressCard({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    double learnedMinutes = 46;
+    double totalMinutes = 60;
+    double progress = learnedMinutes / totalMinutes;
+
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: const [
+          BoxShadow(
+            color: Color.fromRGBO(184, 184, 210, 0.2),
+            blurRadius: 12,
+            spreadRadius: 0,
+            offset: const Offset(0, 8),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            height: 10,
+          ),
+          const Row(
+            children: [
+              Text(
+                "Learned today",
+                style: TextStyle(
+                  fontFamily: 'Gilroy',
+                  fontSize: 14.0,
+                  color: Color.fromRGBO(133, 133, 151, 1),
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+              Spacer(),
+              Text(
+                "My courses",
+                style: TextStyle(
+                  fontFamily: 'Gilroy',
+                  color: Color.fromRGBO(61, 92, 255, 1),
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          RichText(
+            text: TextSpan(
+              text: '${learnedMinutes.toInt()}min',
+              style: const TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
+              children: [
+                TextSpan(
+                  text: ' / ${totalMinutes.toInt()}min',
+                  style: const TextStyle(
+                    fontSize: 16,
+                    color: Colors.grey,
+                    fontWeight: FontWeight.normal,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 12),
+          // ClipRRect(
+          //   borderRadius: BorderRadius.circular(8),
+          //   child: LinearProgressIndicator(
+          //     value: progress,
+          //     minHeight: 6,
+          //     backgroundColor: Colors.grey.shade200,
+          //     valueColor: AlwaysStoppedAnimation<Color>(Colors.orange),
+          //   ),
+          // ),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(8),
+            child: Stack(
+              children: [
+                Container(
+                  height: 6,
+                  color: Colors.grey.shade200,
+                ),
+                Container(
+                  height: 6,
+                  width: MediaQuery.of(context).size.width * 0.7 * progress,
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        Color.fromRGBO(255, 255, 255, 0),
+                        Color.fromRGBO(255, 81, 6, 1),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }
