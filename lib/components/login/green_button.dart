@@ -24,7 +24,7 @@ class GreenButton extends StatelessWidget {
           style: const TextStyle(
             fontFamily: 'Gilroy',
             fontSize: 16.0,
-            fontWeight: FontWeight.w700,
+            fontWeight: FontWeight.w500,
             color: Color.fromRGBO(255, 255, 255, 1),
           ),
         ),

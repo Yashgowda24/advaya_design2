@@ -65,10 +65,10 @@ class onBoardingWidget extends StatelessWidget {
                               style: TextStyle(
                                 fontFamily: 'Gilroy',
                                 fontSize: 16.0,
-                                fontWeight: FontWeight.w700,
+                                fontWeight: FontWeight.w500,
                                 color: Color.fromRGBO(255, 255, 255, 1),
                               )),
-                          SizedBox(width: 10),
+                          SizedBox(width: 8),
                           Icon(
                             Icons.navigate_next,
                             color: Colors.white,
